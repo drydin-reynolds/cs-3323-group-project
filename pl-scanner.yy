@@ -96,7 +96,7 @@ ALPHA [a-zA-Z]
            return L_INTEGER;
          }
 
-{ALPHA}+ { 
+[@][a-z][a-z0-9_]+ { 
            return T_ID;
          }
 
