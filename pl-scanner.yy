@@ -40,6 +40,54 @@ ALPHA [a-zA-Z]
            return OP_ASSIGN; 
          }
 
+"+"      { 
+           return OP_ADD; 
+         }
+
+"-"      { 
+           return OP_SUB; 
+         }
+
+"*"      { 
+           return OP_MUL; 
+         }
+
+"/"      { 
+           return OP_DIV; 
+         }
+
+"<"      { 
+           return OP_LT; 
+         }
+
+">"      { 
+           return OP_GT; 
+         }
+
+"<="      { 
+           return OP_LEQ; 
+         }
+
+">="      { 
+           return OP_GEQ; 
+         }
+
+"=="      { 
+           return OP_EQ; 
+         }
+
+"~="      { 
+           return OP_DIFF; 
+         }
+
+"++"      { 
+           return OP_PLUSPLUS; 
+         }
+
+"+="      { 
+           return OP_ADDINC; 
+         }
+
 "MAIN"   { 
            return K_MAIN; 
          }
