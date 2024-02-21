@@ -1,0 +1,2 @@
+INTEGER @one = 1
+INTEGER @Two = 2
