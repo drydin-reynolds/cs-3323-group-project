@@ -99,6 +99,9 @@ ALPHA [a-zA-Z]
 [@][a-z][a-z0-9_]+ { 
            return T_ID;
          }
+[-+]?[0-9]+(\.[0-9]+)?{
+	   return L_FLOAT;
+}
 
 <<EOF>>  { return T_EOF ; }
 .        { printf ("Unexpected character\n"); exit (1); }
