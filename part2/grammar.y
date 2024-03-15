@@ -109,8 +109,8 @@ a_fact :
     | 
     ;
 
-varref : 
-  | 
+varref : T_ID
+  | varref '[' a_expr ']' 
   ;
 
 l_expr : l_expr T_AND l_term
@@ -121,9 +121,9 @@ l_term : l_term T_OR l_fact
   | l_fact
   ;
 
-l_fact : 
-  | 
-  | 
+l_fact : oprel a_expr l_fact
+  | a_expr
+  | '(' l_expr ')'
   ;
 
 
