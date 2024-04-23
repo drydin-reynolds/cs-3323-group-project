@@ -149,8 +149,8 @@ construct_repeat:
     T_REPEAT
     {
       // First semantic action
-      // TODO: store in the stack the entry number of the next instruction to be generated (use @$.begin.line instead of $$)
-      @$.begin.line = DEFINE_ME;
+      // Store the next instruction entry in the parser's stack
+      @$.begin.line = INSTRUCTION_NEXT;
     }
     stmt_list 
     T_UNTIL 
@@ -159,12 +159,11 @@ construct_repeat:
     T_RPAR
     {
       // Second semantic action.
-      // TODO: Retrieve the value stored in the stack in the first semantic action
-      // above (the second symbol)
-      int jump_dst = DEFINE_ME;
-      // TODO: Generate a jump-if-zero (OP_JZ) to the address stored in the first semantic
+      // Retrieve the value stored in the stack in the first semantic action
+      int jump_dst = @1.begin.line;
+      // Generate a jump-if-zero (OP_JZ) to the address stored in the first semantic
       // action of this rule
-      itab_instruction_add (itab, OP_JZ, DEFINE_ME, NOARG, jump_dst);
+      itab_instruction_add (itab, OP_JZ, $4->addr, NOARG, jump_dst);
     }
     ;
 
